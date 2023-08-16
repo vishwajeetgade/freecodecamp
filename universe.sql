@@ -12,11 +12,7 @@ CREATE TABLE moon(moon_id SERIAL PRIMARY KEY, name VARCHAR(20) UNIQUE NOT NULL);
 ALTER TABLE moon ADD COLUMN planet_id INT NOT NULL REFERENCES planet(planet_id);
 
 
-CREATE TABLE environment_data(environment_id SERIAL PRIMARY KEY, environment VARCHAR(20) NOT NULL);
-
-CREATE TABLE environments(environment VARCHAR(20) NOT NULL);
-ALTER TABLE environments ADD COLUMN planet_id INT NOT NULL REFERENCES planet(planet_id);
-ALTER TABLE environments ADD COLUMN environment_id INT NOT NULL REFERENCES environment_data(environment_id);
+CREATE TABLE environment_data(environment_id SERIAL PRIMARY KEY, name VARCHAR(20) UNIQUE NOT NULL, description TEXT);
 
 INSERT INTO galaxy(name) VALUES("Milky Way"),("Sunflower Galaxy"),("Cigar Galaxy"),
 ("Messier 83"),("Malin 1"),("Tadpole Galaxy");
